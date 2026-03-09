@@ -10,7 +10,8 @@ const router = require('./router/route');
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173", // frontend ka exact URL
+  // origin: "http://localhost:5173", // frontend ka exact URL
+  origin: "https://fullstack-ecommerce-website-fronten.vercel.app", // frontend ka exact URL
   credentials: true               // allow cookies
 }));
 
