@@ -9,10 +9,17 @@ const userRouter = require('./router/userRoute');
 const router = require('./router/route');
 app.use(cookieParser());
 app.use(express.json());
+// server.js mein CORS setup ko aise update karein
 app.use(cors({
-  // Ensure karein ke ye exact frontend URL hai bina trailing slash (/) ke
-  origin: "https://fullstack-ecommerce-website-fronten.vercel.app", 
-  credentials: true
+  // Yahan wo saare URLs likhein jahan se aap frontend access kar rahe hain
+  origin: [
+    "https://fullstack-ecommerce-website-fronten.vercel.app",
+    "https://fullstack-ecommerce-website-frontend-4t5xytw5p.vercel.app", // Ye wala error mein arha hai
+    "http://localhost:5173" // Local development ke liye
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.get('/', (req, res)=>{
