@@ -14,6 +14,11 @@ app.use(cors({
   credentials: true               // allow cookies
 }));
 
+app.get('/', (req, res)=>{
+  res.send("backend is running")
+  console.log("backend is running ")
+}
+)
 app.use('/api' , router)
 app.use('/users', userRouter)
 // app.use(authMiddleware);
